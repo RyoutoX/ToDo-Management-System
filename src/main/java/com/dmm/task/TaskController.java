@@ -70,7 +70,7 @@ public class TaskController {
 
 		repo.save(task);
 
-		return "redirect:/posts";
+		return "redirect:/task";
 	}
 
 	/**
@@ -85,13 +85,13 @@ public class TaskController {
 		return "redirect:/task";
 	}
 	
-	// getNewUserメソッドを追加
-	@GetMapping("/newuser")
-	public String getNewUser(Model model) {
+	// gecalendarメソッドを追加
+	@GetMapping("/calendar")
+	public String getcalendar(Model model) {
 		// Modelに空のUserFormを追加
 		taskForm userForm = new taskForm();
 		model.addAttribute("userForm", userForm);
 		// テンプレートは src/main/resources/templates/newuser.html とします。
-		return "newuser";
+		return "calendar";
 	}
 }
