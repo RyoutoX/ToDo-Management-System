@@ -49,6 +49,7 @@ public class MainController {
 	 * @param user     ユーザー情報
 	 * @return 遷移先
 	 */
+	
 	@GetMapping("/main/create")
 	public String create(@Validated taskForm taskForm, BindingResult bindingResult,
 			@AuthenticationPrincipal AccountUserDetails user, Model model) {
@@ -65,10 +66,11 @@ public class MainController {
 		
 	    tasks task = new tasks();
 		task.setName(task.getName());
-		task.setTitle(taskForm.getTitle());
-		task.setText(taskForm.getText());
+		task.setTitle(task.getTitle());
+		task.setText(task.getText());
 		task.setDate(LocalDateTime.now());
-
+        task.setDone(false);
+        task.setId(null);
 		repo.save(task);
 
 		return "redirect:/task";
